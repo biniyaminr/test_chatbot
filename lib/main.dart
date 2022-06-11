@@ -83,6 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+        hoverColor: Colors.indigo,
         onPressed:  (){
           Navigator.push(
               context,

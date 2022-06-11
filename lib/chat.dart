@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:test_chatbot/FeedbackDialog.dart';
 import 'chatbotResponse.dart';
 
 
@@ -61,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.topRight,
             child:  GestureDetector(
               onTap: () {
-
+                print("I was touched");
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=> FeedbackDialog()));
               },
               child: Text("አስተያየት አለኝ"),
             ),

@@ -3,6 +3,7 @@ import 'dart:core';
 import 'package:bubble/bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:test_chatbot/FeedbackDialog.dart';
 import 'chatbotResponse.dart';
 
 
@@ -61,7 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
             alignment: Alignment.topRight,
             child:  GestureDetector(
               onTap: () {
-
+                print("I was touched");
+                Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (BuildContext context)=> FeedbackDialog()));
               },
               child: Text("አስተያየት አለኝ"),
             ),
@@ -87,16 +89,26 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: TextField(
                     // style: TextStyle(color: Colors.black),
-                    decoration: InputDecoration( icon: Icon( Icons.send, color: Colors.indigo,),
-                      hintText: "ጥያቄ አልዎት?", fillColor: Colors.white12,),
+                    decoration: InputDecoration(
+
+                      suffixIcon: OutlinedButton(
+                        onPressed: () async {
+                          var response = await getResponse();
+                          insertSingleItem(response.answer);
+                        },
+                        child: Icon(
+                          Icons.send,
+                          color: Colors.indigo,
+                        ),
+                      ),
+                      hintText: "ጥያቄ አልዎት?",
+                     fillColor: Colors.white12,),
                     controller: queryController,
                     textInputAction: TextInputAction.send,
                     onSubmitted: (msg)
-                    {
-                      // setState(() {
-                      //   _data.add(msg);
-                      // });
-                      this.getResponse();
+                    async {
+                      var response = await getResponse();
+                      insertSingleItem(response.answer);
                     },
                   ),
                 ),

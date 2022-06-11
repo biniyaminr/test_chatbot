@@ -68,9 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             alignment: Alignment.topRight,
             child:  GestureDetector(
               onLongPress: () {
-                postAnswer();
               },
-              child: Text("አስተያየት አለኝ"),
             ),
           )
       ),
@@ -83,6 +81,8 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+        hoverColor: Colors.indigo,
         onPressed:  (){
           Navigator.push(
               context,

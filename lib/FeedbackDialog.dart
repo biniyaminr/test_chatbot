@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:test_chatbot/chatbotFeedback.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:core';
+=======
+>>>>>>> origin/master
 
 class FeedbackDialog extends StatefulWidget {
   const FeedbackDialog({Key? key}) : super(key: key);
@@ -20,6 +23,24 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
     _controller.dispose();
     super.dispose();
   }
+<<<<<<< HEAD
+=======
+  @override
+  bool get opaque => false;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 300);
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Color get barrierColor => Colors.black54;
+
+>>>>>>> origin/master
 
   @override
   Widget buildTransitions(BuildContext context, Animation<double> animation,
@@ -61,12 +82,17 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
         TextButton(
           child: const Text('አስገባ'),
           onPressed: () async {
+<<<<<<< HEAD
             var response = await getFeedback();
             return response;
+=======
+
+>>>>>>> origin/master
           }),
       ],
     );
   }
+<<<<<<< HEAD
 
   Future getFeedback() async{
     if(_controller.text.length > 0){
@@ -117,3 +143,6 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
 
 
 
+=======
+}
+>>>>>>> origin/master
